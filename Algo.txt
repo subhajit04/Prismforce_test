@@ -1,0 +1,35 @@
+Short Explanation of the Algorithm
+
+Initialization:
+
+Read Input: Get the number of test cases and for each test case, read initial power, number of skips, and recharges. Also, read the enemies’ powers for the 11 circles.
+DP Table Definition:
+
+The DP table dp[ind][currPower][skipsLeft][rechargesLeft] represents whether Abhimanyu can successfully reach the end of the Chakravyuh from the current circle (ind) with a certain amount of power (currPower), skips left (skipsLeft), and recharges left (rechargesLeft).
+Base Case:
+
+If Abhimanyu is at the end of the Chakravyuh (totalCircles), he wins as long as he has non-negative power. Initialize this state in the DP table.
+DP Table Population:
+
+Iterate from the last circle to the first circle.
+For each state, check if Abhimanyu can proceed based on the available power, skips, and recharges:
+Fight: If Abhimanyu has enough power to defeat the enemy.
+Skip: If there are skips left, attempt to skip the current enemy.
+Recharge: If there are recharges left, reset the power and attempt to move forward.
+Handle regeneration of enemies’ power at specific circles (2 and 6).
+Result:
+
+Check the DP table for the starting circle with initial power, skips, and recharges to determine if Abhimanyu can cross the Chakravyuh.
+Complexity Analysis
+Time Complexity: O(totalCircles × p × a ×b)
+where:
+
+totalCircles is the number of circles (11).
+p is the maximum initial power (200).
+a is the number of skips (20).
+b is the number of recharges (20).
+
+Space Complexity: O(totalCircles× p × a × b)
+for storing the DP table.
+
+This DP approach ensures that we explore all possible ways to cross the Chakravyuh efficiently by leveraging state transitions and precomputing possible outcomes for each state.
